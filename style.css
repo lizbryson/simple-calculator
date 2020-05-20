@@ -8,6 +8,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0 1em;
+    transition: 300ms ease background-color;
+
 }
 .calculator {
     border: 2px solid #333;
@@ -79,7 +81,66 @@ body {
     position: absolute;
     bottom: 2em;
     right: 2em;
-    width: 100px;
     height: 50px;
-    background: tomato;
+    width: 100px;
+    display: flex;
+    border: 2px solid #222;
+
+    /* align-items: center; */
+}
+.toggle::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    left: 0;
+    height: 100%;
+    background-color: orange;
+    transition: 300ms ease left;
+
+}
+.toggle-btn {
+    width: 50%;
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+/* Dark Styles
+***************************************************/
+.is-dark {
+    background-color: #111;
+    transition: 300ms ease background-color;
+}
+
+.is-dark .calculator {
+    background-color: #222;
+}
+
+.is-dark .btn {
+    background-color: #222;
+    color: #fff;
+}
+.is-dark .btn:hover {
+    background-color: #111;
+}
+.is-dark .btn--operator {
+    background-color: #525186;
+}
+.is-dark .btn--operator:hover {
+    background-color: #41406f;
+}
+.is-dark .toggle {
+    border-color: #fff;
+    
+}
+.is-dark .toggle-btn {
+    color: #fff;
+}
+.is-dark .toggle:after {
+    left: 50%;
+    transition: 300ms ease left;
+    background-color: #525186;
 }

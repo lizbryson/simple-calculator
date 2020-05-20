@@ -6,12 +6,12 @@ let calculator = {
     calcOps : document.getElementById('calcOps'),
     calcButtons : document.querySelector('.calculator-nums'),
     clear() {
-        calculator.calcDisplay.innerHTML = 0;
+        this.calcDisplay.innerHTML = 0;
     },
     undo() {
-        const currentVal = calculator.calcDisplay.innerHTML;
+        const currentVal = this.calcDisplay.innerHTML;
         const newVal = currentVal.slice(0, currentVal.length - 1 );
-        calculator.calcDisplay.innerHTML = newVal;
+        this.calcDisplay.innerHTML = newVal;
     },
     compute(val) {
         if (val === '+') {
@@ -73,6 +73,14 @@ calculator.calcOps.addEventListener('click', function(e) {
         calculator.currentValue = calculator.calcDisplay.innerHTML;
         calculator.clear();
     }
-
 });
 
+const themeSelector = document.getElementById('toggleBtns');
+const docBody = document.getElementById('siteBody'); 
+themeSelector.addEventListener('click', function(e) {
+    if (e.target.id === 'darkBtn') {
+        docBody.classList.add('is-dark')
+    } else {
+        docBody.classList.remove('is-dark')
+    }
+})
